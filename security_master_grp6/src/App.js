@@ -1,22 +1,20 @@
 import './App.css';
+import {Routes,Route} from 'react-router-dom'
+import Home from './components/Home Page/Home';
+import MainView from './components/Secmaster_View/MainView';
+import Upload from './components/Secmaster_Upload/Upload';
+
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to Security Master</h1>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/sec-view' element={<MainView/>}/>
+        <Route path='/sec-upload' element={<Upload/>}/>
+      </Routes>
     </div>
   );
 }
