@@ -1,19 +1,23 @@
 import './App.css';
+
 import {Routes,Route} from 'react-router-dom'
 import Home from './components/Home Page/Home';
-import MainView from './components/Secmaster_View/MainView';
 import Upload from './components/Secmaster_Upload/Upload';
+import ViewEquity from './components/Secmaster_ViewEquity/ViewEquity';
+import ViewBond from './components/Secmaster_ViewBond/ViewBond';
+import Nav from './components/Navbar/Nav';
 
 
 function App() {
   return (
-
     <div className="App">
+      <Nav/>
       <h1>Welcome to Security Master</h1>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/sec-view' element={<MainView/>}/>
+        <Route path='/sec-view-equity' element={<ViewEquity/>}/>
         <Route path='/sec-upload' element={<Upload/>}/>
+        <Route path='/sec-view-bond' element={<ViewBond/>}/>
       </Routes>
     </div>
   );

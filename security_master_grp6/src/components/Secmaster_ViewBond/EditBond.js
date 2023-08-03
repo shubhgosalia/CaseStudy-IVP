@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tile = () => {
+const EditBond = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Tile = () => {
   );
 }
 
-export default Tile;
+export default EditBond;
