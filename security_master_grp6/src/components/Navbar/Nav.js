@@ -6,6 +6,7 @@ import AddModeratorIcon from '@mui/icons-material/AddModerator';
 const Nav = () => {
   const navigate=useNavigate()
   return (
+     //appbar is the default navbar in material ui
       <AppBar style={{background:'#21313A'}} position='static'>
            <Toolbar>
               <IconButton size='large' edge='start' color='inherit' aria-label='logo'>

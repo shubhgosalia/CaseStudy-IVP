@@ -1,5 +1,4 @@
 import './App.css';
-
 import {Routes,Route} from 'react-router-dom'
 import Home from './components/Home Page/Home';
 import Upload from './components/Secmaster_Upload/Upload';
@@ -12,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Nav/>
-      <h1>Welcome to Security Master</h1>
+      {/* Routing */}
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/sec-view-equity' element={<ViewEquity/>}/>
