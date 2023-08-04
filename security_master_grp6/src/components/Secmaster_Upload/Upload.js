@@ -7,6 +7,9 @@ const Upload = () => {
   const [files, setFiles] = useState([]);
   const [rejected, setRejected] = useState([]);
 
+  console.log(files.length)
+  console.log(rejected.length)
+
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     if (acceptedFiles?.length) {
       setFiles((previousFiles) => [
@@ -24,7 +27,7 @@ const Upload = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { "text/csv": [".csv"] },
-    // maxFiles: 1,
+    maxFiles: 1,
   });
   const removeFile = (name) => {
     setFiles((files) => files.filter((file) => file.name !== name));
@@ -34,16 +37,24 @@ const Upload = () => {
     setRejected((files) => files.filter(({ file }) => file.name !== name));
   };
 
+  const handleSubmit=()=>{
+    if(files?.length>1)
+      alert("Can't upload multiple files!")
+    else
+      alert("Uploaded files successfully!")
+  }
+
   return (
     <>
       <h1
         style={{ color: "#21313A" }}
-        className="title text-3xl font-bold mt-14"
+        className="title text-3xl font-bold mt-10"
       >
         Upload Equity File
       </h1>
 
       {/* Drag & Drop Area */}
+      <form onSubmit={handleSubmit}>
       <div
         className="p-20 mt-7 text-center mx-auto cursor-pointer border border-green-400 border-dashed rounded"
         style={{ width: 800 }}
@@ -63,6 +74,16 @@ const Upload = () => {
           </h2>
         )}
       </div>
+         {files?.length ? (
+         <button
+         type="submit"
+         className="text-sm mt-5 uppercase text-gray-900 bg-green-600 text-white border border-green-400 focus:outline-none hover:bg-green-800 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2"
+       >
+         Upload
+        </button> 
+   ) : (
+          <></>
+        )}
 
       {/* Accepted Files Preview*/}
       <h2
@@ -71,7 +92,7 @@ const Upload = () => {
       >
         Accepted File
       </h2>
-      <ul className="mt-6 mx-auto">
+      <ul className="mt-4 mx-auto">
         {files.map((file) => (
           <li key={file.name}>
             <button
@@ -85,7 +106,7 @@ const Upload = () => {
               />
             </button>
             <div
-              className="mt-2 text-neutral-500 font-medium text-xl border border-grey-200 p-5 mx-auto cursor-pointer"
+              className="mt-2 mb-5 text-neutral-500 font-medium text-xl border border-grey-200 p-5 mx-auto cursor-pointer"
               style={{ width: 250 }}
             >
               <DescriptionIcon className="text-green-600" /> {file.name}
@@ -94,12 +115,12 @@ const Upload = () => {
         ))}
       </ul>
 
-      {/* Regected Files */}
+      {/* Rejected Files */}
       <h2
         className="title text-xl font-semibold text-gray-700 mt-14 border-b-2 pb-2 mx-auto"
         style={{ width: 800 }}
       >
-        Regected File
+        Rejected File
       </h2>
       <ul className="mt-6 flex flex-col">
         {rejected.map(({ file, errors }) => (
@@ -107,13 +128,13 @@ const Upload = () => {
             <div>
               <div
                 className="text-neutral-500 font-medium text-md cursor-pointer"
-                style={{ marginRight: -1520 }}
+                style={{ marginRight: -1350 }}
               >
                 {file.name}
               </div>
               <ul
                 className="text-[12px] text-red-500"
-                style={{ marginRight: -1520 }}
+                style={{ marginRight: -1350 }}
               >
                 {errors.map((error) => (
                   <li key={error.code}>{error.message}</li>
@@ -123,7 +144,7 @@ const Upload = () => {
             <button
               type="button"
               className="text-sm uppercase text-gray-900 bg-white border border-red-400 focus:outline-none hover:bg-red-500 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2"
-              style={{ marginRight: 500, marginBottom: 70 }}
+              style={{ marginRight: 400, marginBottom: 50 }}
               onClick={() => removeRejected(file.name)}
             >
               remove
@@ -131,6 +152,7 @@ const Upload = () => {
           </li>
         ))}
       </ul>
+      </form>
     </>
   );
 };
