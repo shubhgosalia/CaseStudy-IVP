@@ -47,8 +47,7 @@ const Upload = () => {
   return (
     <>
       <h1
-        style={{ color: "#21313A" }}
-        className="title text-3xl font-bold mt-10"
+        className="title text-3xl font-bold mt-10 text-white"
       >
         Upload Equity File
       </h1>
@@ -56,18 +55,18 @@ const Upload = () => {
       {/* Drag & Drop Area */}
       <form onSubmit={handleSubmit}>
       <div
-        className="p-20 mt-7 text-center mx-auto cursor-pointer border border-green-400 border-dashed rounded"
+        className="p-20 mt-7 text-center mx-auto cursor-pointer border border-white border-dashed rounded"
         style={{ width: 800 }}
         {...getRootProps()}
       >
         <input {...getInputProps()} />
         {isDragActive ? (
-          <h2 className="font-medium text-xl text-green-600">
+          <h2 className="font-medium text-xl text-white">
             Drop the files here ...
           </h2>
         ) : (
           <h2
-            className="font-medium text-xl text-green-600"
+            className="font-medium text-xl text-white"
             style={{ listStyle: "none" }}
           >
             Drag & drop CSV file here, or click to select file!
@@ -77,7 +76,7 @@ const Upload = () => {
          {files?.length ? (
          <button
          type="submit"
-         className="text-sm mt-5 uppercase text-gray-900 bg-green-600 text-white border border-green-400 focus:outline-none hover:bg-green-800 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2"
+         className="text-sm mt-5 uppercase text-white bg-green-600 text-white border border-green-600 hover:bg-green-700 hover:text-white font-medium rounded-lg px-5 py-2"
        >
          Upload
         </button> 
@@ -87,7 +86,7 @@ const Upload = () => {
 
       {/* Accepted Files Preview*/}
       <h2
-        className="title text-xl font-semibold text-gray-700 mt-10 border-b-2 pb-2 mx-auto"
+        className="title text-xl font-semibold text-white mt-10 border-b-2 border-white pb-2 mx-auto"
         style={{ width: 800 }}
       >
         Accepted File
@@ -101,12 +100,11 @@ const Upload = () => {
               onClick={() => removeFile(file.name)}
             >
               <CancelIcon
-                className="w-6 h-6 fill-white"
-                style={{ color: "red" }}
+                className="w-6 h-6 fill-white text-red-500"
               />
             </button>
             <div
-              className="mt-2 mb-5 text-neutral-500 font-medium text-xl border border-grey-200 p-5 mx-auto cursor-pointer"
+              className="mt-2 mb-5 text-white font-medium text-xl border border-gray-200 p-3 mx-auto cursor-pointer"
               style={{ width: 250 }}
             >
               <DescriptionIcon className="text-green-600" /> {file.name}
@@ -117,7 +115,7 @@ const Upload = () => {
 
       {/* Rejected Files */}
       <h2
-        className="title text-xl font-semibold text-gray-700 mt-14 border-b-2 pb-2 mx-auto"
+        className="title text-xl font-semibold text-white mt-14 border-b-2 pb-2 border-white mx-auto"
         style={{ width: 800 }}
       >
         Rejected File
@@ -127,14 +125,14 @@ const Upload = () => {
           <li key={file.name} className="flex items-start justify-between">
             <div>
               <div
-                className="text-neutral-500 font-medium text-md cursor-pointer"
-                style={{ marginRight: -1350 }}
+                className="text-white font-medium text-md cursor-pointer"
+                style={{ marginRight: -1360 }}
               >
                 {file.name}
               </div>
               <ul
-                className="text-[12px] text-red-500"
-                style={{ marginRight: -1350 }}
+                className="text-[12px] text-gray-400"
+                style={{ marginRight: -1360 }}
               >
                 {errors.map((error) => (
                   <li key={error.code}>{error.message}</li>
@@ -143,7 +141,7 @@ const Upload = () => {
             </div>
             <button
               type="button"
-              className="text-sm uppercase text-gray-900 bg-white border border-red-400 focus:outline-none hover:bg-red-500 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2"
+              className="text-sm uppercase text-white bg-green-600 text-white border border-green-600 hover:bg-green-700 hover:text-white font-medium rounded-lg px-5 py-2"
               style={{ marginRight: 400, marginBottom: 50 }}
               onClick={() => removeRejected(file.name)}
             >
