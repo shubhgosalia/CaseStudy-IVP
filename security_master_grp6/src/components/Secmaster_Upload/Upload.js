@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DescriptionIcon from "@mui/icons-material/Description";
 
+
 const Upload = () => {
   const [files, setFiles] = useState([]);
   const [rejected, setRejected] = useState([]);
@@ -39,7 +40,7 @@ const Upload = () => {
 
   const handleSubmit=()=>{
     if(files?.length>1)
-      alert("Can't upload multiple files!")
+      alert("Can't upload multiple files!Upload again!")
     else
       alert("Uploaded files successfully!")
   }

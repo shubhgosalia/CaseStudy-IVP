@@ -7,7 +7,7 @@ const Nav = () => {
   const navigate=useNavigate()
   return (
      //appbar is the default navbar in material ui
-      <AppBar style={{background:'#21313A'}} position='static'>
+      <AppBar style={{background:'#21313A'}} position='sticky'>
            <Toolbar>
               <IconButton size='large' edge='start' color='inherit' aria-label='logo'>
                  <AddModeratorIcon/> 
