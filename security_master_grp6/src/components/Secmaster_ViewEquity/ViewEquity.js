@@ -1,6 +1,8 @@
-import React, {useState,useEffect}  from 'react';
-import axios from 'axios';
-import EquityTable from './EquityTable';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import EquityTable from "./EquityTable";
+import EquityTile from "./EquityTile";
+
 // const ViewEquity = () => {
 //     const[product,setProducts]=useState([])
 //     useEffect(()=>{
@@ -22,9 +24,9 @@ import EquityTable from './EquityTable';
 //     <div>
 //           <h2>Fetch User Information</h2>
 //           {
-//               product.map(pr => 
+//               product.map(pr =>
 //               <div className='mt-5'>
-//                 {pr.email} - {pr.user} 
+//                 {pr.email} - {pr.user}
 //                 <button
 //               type="button"
 //               className="text-sm ml-5 uppercase text-gray-900 bg-white border border-red-400 focus:outline-none hover:bg-red-500 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2"
@@ -32,7 +34,7 @@ import EquityTable from './EquityTable';
 //             >
 //               Get Id
 //             </button>
-//               </div>            
+//               </div>
 //               )
 //           }
 //     </div>
@@ -46,9 +48,10 @@ import EquityTable from './EquityTable';
 const ViewEquity = () => {
   return (
     <div>
-      <EquityTable/>
+      <EquityTile />
+      <EquityTable />
     </div>
   );
-}
+};
 
 export default ViewEquity;

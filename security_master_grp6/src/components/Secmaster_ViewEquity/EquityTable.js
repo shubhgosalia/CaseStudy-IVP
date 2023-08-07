@@ -26,10 +26,6 @@ const EquityTable = () => {
 
   const numbers = [...Array(pageCount).keys()].slice(0);
 
-  //   const handlePageChange = ({ selected }) => {
-  //     setCurrentPage(selected);
-  //   };
-
   const prevPage = () => {
     if (currentPage !== 0) {
       setCurrentPage(currentPage - 1);
@@ -47,15 +43,12 @@ const EquityTable = () => {
   };
 
   return (
-    <div
-      className="relative overflow-x-auto shadow-md sm:rounded-lg m-20"
-      style={{ marginTop: 200 }}
-    >
+    <div className="relative overflow-x-auto shadow-md sm:rounded-lg ml-20 mr-20 mb-5">
       <form className="mb-10">
-        <div class="relative">
-          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
-              class="w-4 h-4 text-gray-500 dark:text-gray-400"
+              className="w-4 h-4 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -143,7 +136,7 @@ const EquityTable = () => {
                 <td className="py-4">
                   <button
                     type="button"
-                    class="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700"
+                    className="focus:outline-none text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700"
                   >
                     Edit
                   </button>
@@ -151,7 +144,7 @@ const EquityTable = () => {
                 <td className="py-4">
                   <button
                     type="button"
-                    class="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-6 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700"
+                    className="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-6 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700"
                   >
                     Delete
                   </button>
@@ -162,11 +155,11 @@ const EquityTable = () => {
       </table>
 
       <nav className="mt-5 mb-5" aria-label="Page navigation">
-        <ul class="inline-flex -space-x-px text-sm">
+        <ul className="inline-flex -space-x-px text-md">
           <li>
             <a
               href="#"
-              class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={prevPage}
             >
               Prev
@@ -190,7 +183,7 @@ const EquityTable = () => {
           <li>
             <a
               href="#"
-              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={nextPage}
             >
               Next
