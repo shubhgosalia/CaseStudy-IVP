@@ -21,7 +21,7 @@ import EquityTile from "./EquityTile";
 //     }
 
 //   return (
-//     <div>
+//     <div className="text-white">
 //           <h2>Fetch User Information</h2>
 //           {
 //               product.map(pr =>

@@ -8,8 +8,7 @@ const Upload = () => {
   const [files, setFiles] = useState([]);
   const [rejected, setRejected] = useState([]);
 
-  console.log(files.length)
-  console.log(rejected.length)
+  console.log(files)
 
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     if (acceptedFiles?.length) {
@@ -40,9 +39,9 @@ const Upload = () => {
 
   const handleSubmit=()=>{
     if(files?.length>1)
-      alert("Can't upload multiple files!Upload again!")
+      alert("Can't upload multiple files at a time!Upload again!")
     else
-      alert("Uploaded files successfully!")
+      alert("Uploaded file successfully!")
   }
 
   return (
