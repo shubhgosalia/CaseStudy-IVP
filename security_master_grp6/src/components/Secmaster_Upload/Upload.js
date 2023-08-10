@@ -2,6 +2,9 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DescriptionIcon from "@mui/icons-material/Description";
+import Swal from "sweetalert2"; 
+import "sweetalert2/dist/sweetalert2.min.css";
+
 
 
 const Upload = () => {
@@ -37,11 +40,28 @@ const Upload = () => {
     setRejected((files) => files.filter(({ file }) => file.name !== name));
   };
 
-  const handleSubmit=()=>{
-    if(files?.length>1)
-      alert("Can't upload multiple files at a time!Upload again!")
-    else
-      alert("Uploaded file successfully!")
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    if(files?.length>1){
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Cannot upload multiple files at a time!Upload again!",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Ok",
+      })  
+    }
+    else{
+      console.log("great!")
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "File uploaded successfully",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Ok",
+      })
+  
+    }
   }
 
   return (
@@ -140,7 +160,7 @@ const Upload = () => {
               </ul>
             </div>
             <button
-              type="button"
+              type="submit"
               className="text-sm uppercase text-white bg-green-600 text-white border border-green-600 hover:bg-green-700 hover:text-white font-medium rounded-lg px-5 py-2"
               style={{ marginRight: 400, marginBottom: 50 }}
               onClick={() => removeRejected(file.name)}

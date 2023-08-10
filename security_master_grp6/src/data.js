@@ -88,8 +88,8 @@ export const tableData = [
   },
   
   {
-    security_name: "DWNI GR",
-    security_desc: "DEUTSCHE WOHNEN AG-BR",
+    security_name: "QIHU US",
+    security_desc: "QIHOO 360 TECHNOLOGY CO-ADR ",
     curr: "USD",
     tot_shares_out: "89415481",
     open_price: "59.37",
@@ -102,11 +102,11 @@ export const tableData = [
     security_name: "DWNI GR",
     security_desc: "DEUTSCHE WOHNEN AG-BR",
     curr: "EUR",
-    tot_shares_out: "989660472",
-    open_price: "164.16",
-    close_price: "164.16",
-    div_date: "1/1/2015",
-    pf_rating:"AA+"
+    tot_shares_out: "294259979",
+    open_price: "19.685",
+    close_price: "19.704 ",
+    div_date: "1/10/2015",
+    pf_rating:"AA"
   },
   
 ];

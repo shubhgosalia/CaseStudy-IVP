@@ -18,7 +18,7 @@ const EquityTile = () => {
                 10
               </h1>
               <h5 className="mb-4 text-2xl text-green-700 font-medium">
-                Active Bonds
+                Active Equities
               </h5>
             </div>
           </div>
@@ -36,7 +36,7 @@ const EquityTile = () => {
                 7
               </h1>
               <h5 className="mb-4 text-2xl text-red-700 font-medium">
-                Inactive Bonds
+                Inactive Equities
               </h5>
             </div>
           </div>

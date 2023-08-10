@@ -10,15 +10,17 @@ const EquityRow = ({item,i}) => {
                   i % 2 === 0 ? "bg-white" : "bg-gray-100"
                 }`}
               >
-                <td className="px-6 py-4"> {item.id}</td>
-                <td className="px-6 py-4">{item.first_name}</td>
-                <td className="px-6 py-4">{item.last_name}</td>
-                <td className="px-6 py-4">{item["job title"]}</td>
-                <td className="px-6 py-4">{item.email}</td>
-                <td className="px-6 py-4">{item.gender}</td>
-                <td className="px-6 py-4">{item["phone number"]}</td>
+                <td className="px-6 py-4"> {item.security_name}</td>
+                <td className="px-6 py-4">{item.security_desc}</td>
+                <td className="px-6 py-4">{item.curr}</td>
+                <td className="px-6 py-4">{item.tot_shares_out}</td>
+                <td className="px-6 py-4">{item.open_price}</td>
+                <td className="px-6 py-4">{item.close_price}</td>
+                <td className="px-6 py-4">{item.div_date}</td>
+                <td className="px-6 py-4">{item.pf_rating}</td>
+
                 <td className="py-4">
-                  <button  onClick={()=>setshowEditModal(true)}>
+                  <button onClick={()=>setshowEditModal(true)}>
                     <svg
                       className="ml-7"
                       width="20"
@@ -31,7 +33,7 @@ const EquityRow = ({item,i}) => {
                       <path d="m19.956 6.656-2.612-2.612 1.484-1.437c.229-.23.58-.357.906-.357a1.214 1.214 0 0 1 .864.357l.797.797a1.213 1.213 0 0 1 .355.862c0 .328-.127.677-.357.907l-1.437 1.483Z"></path>
                     </svg>
                   </button>
-                   {showEditModal && <EditEquity  item={item}/>}
+                   {showEditModal && <EditEquity  item={item} closeModal={setshowEditModal}/>}
                 </td>
                 <td className="py-4">
                   <button>
@@ -48,7 +50,7 @@ const EquityRow = ({item,i}) => {
                   </button>
                 </td>
                 <td className="py-4">
-                  <button onClick>
+                  <button>
                     <svg
                       className="ml-7"
                       width="20"

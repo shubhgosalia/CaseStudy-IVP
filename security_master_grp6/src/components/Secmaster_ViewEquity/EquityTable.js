@@ -12,12 +12,14 @@ const EquityTable = () => {
     tableData.filter((item) => {
       return search.toLowerCase() === ""
         ? item
-        : item.first_name.toLowerCase().includes(search) |
-            item.last_name.toLowerCase().includes(search) |
-            item["job title"].toLowerCase().includes(search) |
-            item.gender.toLowerCase().includes(search) |
-            item.email.toLowerCase().includes(search) |
-            item["phone number"].toLowerCase().includes(search);
+        : item.security_name.toLowerCase().includes(search) |
+            item.security_desc.toLowerCase().includes(search) |
+            item.curr.toLowerCase().includes(search) |
+            item.tot_shares_out.toLowerCase().includes(search) |
+            item.open_price.toLowerCase().includes(search) |
+            item.close_price.toLowerCase().includes(search) |
+            item.div_date.toLowerCase().includes(search) |
+            item.pf_rating.toLowerCase().includes(search);
     }).length / recordsPerPage
   );
 
@@ -78,25 +80,28 @@ const EquityTable = () => {
         <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3">
-              Id
+              Equity Name
             </th>
             <th scope="col" className="px-6 py-3">
-              First Name
+              Description 
             </th>
             <th scope="col" className="px-6 py-3">
-              Last Name
+              Pricing Currency
             </th>
             <th scope="col" className="px-6 py-3">
-              Job Title
+              Total Shares Outstanding
             </th>
             <th scope="col" className="px-6 py-3">
-              Email
+              Open Price
             </th>
             <th scope="col" className="px-6 py-3">
-              Gender
+              Close Price
             </th>
             <th scope="col" className="px-6 py-3">
-              Phone
+              Dividend Date
+            </th>
+            <th scope="col" className="px-6 py-3">
+              PF Credit Rating
             </th>
             <th scope="col" className="px-6 py-3">
               Edit
@@ -115,12 +120,14 @@ const EquityTable = () => {
             .filter((item) => {
               return search.toLowerCase() === ""
                 ? item
-                : item.first_name.toLowerCase().includes(search) |
-                    item.last_name.toLowerCase().includes(search) |
-                    item["job title"].toLowerCase().includes(search) |
-                    item.gender.toLowerCase().includes(search) |
-                    item.email.toLowerCase().includes(search) |
-                    item["phone number"].toLowerCase().includes(search);
+                : item.security_name.toLowerCase().includes(search) |
+                item.security_desc.toLowerCase().includes(search) |
+                item.curr.toLowerCase().includes(search) |
+                item.tot_shares_out.toLowerCase().includes(search) |
+                item.open_price.toLowerCase().includes(search) |
+                item.close_price.toLowerCase().includes(search) |
+                item.div_date.toLowerCase().includes(search) |
+                item.pf_rating.toLowerCase().includes(search);
             })
             .slice(lastIndex, lastIndex + recordsPerPage)
             .map((item, i) => (
