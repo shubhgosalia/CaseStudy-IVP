@@ -2,10 +2,28 @@ import React from 'react';
 import { useNavigate,useLocation } from 'react-router';
 import {AppBar,IconButton,Toolbar,Typography,Stack,Button} from "@mui/material"
 import AddModeratorIcon from '@mui/icons-material/AddModerator';
+import Swal from "sweetalert2"; 
+import "sweetalert2/dist/sweetalert2.min.css";
+
 
 const Nav = () => {
   const navigate=useNavigate()
   const location = useLocation(); 
+
+//   const handleNavigateToEquities = () => {
+//    if (!hasUploadedFile) {
+//      Swal.fire({
+//        icon: "error",
+//        title: "Error",
+//        text: "Please upload a file before navigating to Equities!",
+//        confirmButtonColor: "#3085d6",
+//        confirmButtonText: "Ok",
+//      });
+//    } else {
+//      navigate("/sec-view-equity");
+//    }
+//  };
+
 
   return (
      //appbar is the default navbar in material ui
@@ -18,9 +36,9 @@ const Nav = () => {
                 SecMaster
               </Typography>
               <Stack direction='row' spacing={2}>
-                  <Button onClick={()=>navigate('/')} color={location.pathname === '/' ? 'primary' : 'inherit'}>Home</Button>
+                  <Button onClick={()=>navigate('/')} color={location.pathname === '/' ? 'primary' : 'inherit'} >Home</Button>
                   <Button onClick={()=>navigate('/sec-upload')} color={location.pathname === '/sec-upload' ? 'primary' : 'inherit'}>Upload CSV</Button>
-                  <Button onClick={()=>navigate('/sec-view-equity')} color={location.pathname === '/sec-view-equity' ? 'primary' : 'inherit'}>Equities</Button>
+                  <Button onClick={()=>navigate('/sec-view-equity')} color={location.pathname === '/sec-view-equity' ? 'primary' : 'inherit'} >Equities</Button>
                   <Button onClick={()=>navigate('/sec-view-bond')} color={location.pathname === '/sec-view-bond' ? 'primary' : 'inherit'}>Bonds</Button>
               </Stack>
            </Toolbar>

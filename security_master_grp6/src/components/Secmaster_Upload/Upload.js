@@ -5,11 +5,11 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import Swal from "sweetalert2"; 
 import "sweetalert2/dist/sweetalert2.min.css";
 
-
-
 const Upload = () => {
   const [files, setFiles] = useState([]);
   const [rejected, setRejected] = useState([]);
+  // const [hasUploadedFile, setHasUploadedFile] = useState(false); 
+
 
   console.log(files)
 
@@ -52,7 +52,7 @@ const Upload = () => {
       })  
     }
     else{
-      console.log("great!")
+      // setHasUploadedFile(true); 
       Swal.fire({
         icon: "success",
         title: "Success",
