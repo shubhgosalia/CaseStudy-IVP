@@ -1,33 +1,118 @@
 import React, { useState } from "react";
 
-const EquityPopup = ({ onClose }) => {
+const EquityPopup = ({ item, onClose }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    "Tab 1",
-    "Tab 2",
-    "Tab 3",
-    "Tab 4",
-    "Tab 5",
-    "Tab 6",
-    "Tab 7",
-    "Tab 8",
+    "Equity Summary",
+    "Equity Identifier",
+    "Equity Details",
+    "Risk",
+    "Regulatory Details",
+    "Reference Data",
+    "Pricing Details",
+    "Dividend History",
   ];
 
   const tabContent = [
     {
       data: [
-        { label: "Field 1", value: "Value 1" },
-        { label: "Field 2", value: "Value 2" },
-        // ... add more fields and values
+        { label: "Equity Name", value: `${item.security_name}` },
+        { label: "Equity Description", value: `${item.security_desc}` },
+        { label: "Has Position", value: "None" },
+        { label: "Is Active", value: "None" },
+        { label: "Round Lot size", value: "None" },
+        { label: "Bloomberg Unique Name", value: "None" },
       ],
     },
     {
       data: [
-        // ... add data for Tab 2
+        { label: "CUSIP", value: "None" },
+        { label: "ISIN", value: "None" },
+        { label: "SEDOL", value: "None" },
+        { label: "Bloomberg Ticker", value: "None" },
+        { label: "Bloomberg Unique Id", value: "None" },
+        { label: "Bloomberg Global Id", value: "None" },
+        { label: "Bloomberg Ticker and Exchange", value: "None" },
       ],
     },
-    // ... add more tab content
+
+    {
+      data: [
+        { label: "Is ADR", value: "None" },
+        { label: "ADR Underlying Ticker", value: "None" },
+        { label: "ADR Underlying Currency", value: "None" },
+        { label: "Shares Per ADR", value: "None" },
+        { label: "IPO Date", value: "None" },
+        { label: "Price Currency", value: `${item.curr}` },
+        { label: "Settle Days", value: "None" },
+        { label: "Shares Outstanding", value: `${item.tot_shares_out}` },
+        { label: "Voting Rights Per Share", value: "None" },
+      ],
+    },
+    {
+      data: [
+        { label: "20 Day Average", value: "None" },
+        { label: "Beta", value: "None" },
+        { label: "Short Interest", value: "None" },
+        { label: "YTD Return", value: "None" },
+        { label: "90 Day Price Volatility", value: "None" },
+      ],
+    },
+    {
+      data: [
+        { label: "Form PF Asset Class", value: "None" },
+        { label: "Form PF Country", value: "None" },
+        { label: "Form PF Credit Rating", value: `${item.pf_rating}` },
+        { label: "Form PF Currency", value: "None" },
+        { label: "Form PF Instrument", value: "None" },
+        { label: "Form PF Liquidity Profile", value: "None" },
+        { label: "Form PF Maturity", value: "None" },
+        { label: "Form PF NAICS Code", value: "None" },
+        { label: "Form PF Region", value: "None" },
+        { label: "Form PF Sector", value: "None" },
+        { label: "Form PF Sub Asset Class", value: "None" },
+      ],
+    },
+
+    {
+      data: [
+        { label: "Issue Country", value: "None" },
+        { label: "Exchange", value: "None" },
+        { label: "Issuer", value: "None" },
+        { label: "Issue Currency", value: "None" },
+        { label: "Trading Currency", value: "None" },
+        { label: "Bloomberg Industry Sub Group", value: "None" },
+        { label: "Bloomberg Industry Group", value: "None" },
+        { label: "Bloomberg Industry Sector", value: "None" },
+        { label: "Country of Incorporation", value: "None" },
+        { label: "Risk Currency", value: "None" },
+      ],
+    },
+
+    {
+      data: [
+        { label: "Open Price", value: `${item.open_price}` },
+        { label: "Close Price", value: `${item.close_price}` },
+        { label: "Volume", value: "None" },
+        { label: "Last Price", value: "None" },
+        { label: "Ask Price", value: "None" },
+        { label: "Bid Price", value: "None" },
+        { label: "PE Ratio", value: "None" },
+      ],
+    },
+
+    {
+      data: [
+        { label: "Declared Date", value: `${item.div_date}` },
+        { label: "Ex Date", value: "None" },
+        { label: "Record Date", value: "None" },
+        { label: "Pay Date", value: "None" },
+        { label: "Amount", value: "None" },
+        { label: "Frequency", value: "None" },
+        { label: "Dividend Type", value: "None" },
+      ],
+    },
   ];
 
   return (
@@ -54,7 +139,6 @@ const EquityPopup = ({ onClose }) => {
               key={index}
               className={`${activeTab === index ? "block" : "hidden"} mb-6`}
             >
-              <h2 className="text-lg font-semibold mb-3">{tab.title}</h2>
               <table className="w-full">
                 <tbody>
                   {tab.data.map((item, itemIndex) => (
@@ -64,10 +148,10 @@ const EquityPopup = ({ onClose }) => {
                         itemIndex % 2 === 0 ? "bg-gray-100" : ""
                       } border-b`}
                     >
-                      <td className="px-4 py-2 font-semibold text-gray-700">
+                      <td className="px-4 py-2 font-semibold w-1/3 text-gray-700">
                         {item.label}
                       </td>
-                      <td className="px-4 py-2">{item.value}</td>
+                      <td className="px-4 py-2 w-2/3">{item.value}</td>
                     </tr>
                   ))}
                 </tbody>

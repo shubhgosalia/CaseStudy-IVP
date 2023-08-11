@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 
 const EditEquity = ({ item, closeModal }) => {
+  const [isFormChanged, setIsFormChanged] = useState(false);
+
   const formatDate = (dateString) => {
     const dateObject = new Date(dateString);
     const year = dateObject.getFullYear();
@@ -20,6 +22,19 @@ const EditEquity = ({ item, closeModal }) => {
     div_date: `${formatDate(item.div_date)}`,
     pf_rating: `${item.pf_rating}`,
   });
+
+  useEffect(() => {
+    const isAnyFieldChanged =
+      details.description !== item.security_desc ||
+      details.currency !== item.curr ||
+      details.tot_shares !== item.tot_shares_out ||
+      details.open_price !== item.open_price ||
+      details.close_price !== item.close_price ||
+      details.div_date !== formatDate(item.div_date) ||
+      details.pf_rating !== item.pf_rating;
+
+    setIsFormChanged(isAnyFieldChanged);
+  }, [details, item]);
 
   const [validationErrors, setValidationErrors] = useState({
     tot_shares: "",
@@ -71,12 +86,49 @@ const EditEquity = ({ item, closeModal }) => {
     Swal.fire({
       icon: "success",
       title: "Success",
-      text: "Changes have been saved successfully!",
+      text: "Changes have been updated successfully!",
       confirmButtonColor: "#3085d6",
-      confirmButtonText: "Ok",
+      confirmButtonText: "OK",
     }).then(() => {
       closeModal(false);
     });
+  };
+
+  const getPfRatingOptions = () => {
+    return ["AA+", "A-", "AA-", "A", "AA", "BBB+", "BBB"].map((rating) => (
+      <option key={rating} value={rating}>
+        {rating}
+      </option>
+    ));
+  };
+
+  const getPricingCurrencyOptions = () => {
+    return [
+      "USD",
+      "KRW",
+      "GBP",
+      "EUR",
+      "JPY",
+      "CAD",
+      "AUD",
+      "CHF",
+      "CNY",
+      "INR",
+      "SGD",
+      "HKD",
+      "NZD",
+      "SEK",
+      "NOK",
+      "ZAR",
+      "BRL",
+      "RUB",
+      "TRY",
+      "MXN",
+    ].map((currency) => (
+      <option key={currency} value={currency}>
+        {currency}
+      </option>
+    ));
   };
 
   return (
@@ -129,10 +181,7 @@ const EditEquity = ({ item, closeModal }) => {
                   setDetails({ ...details, currency: e.target.value })
                 }
               >
-                <option value="USD">USD</option>
-                <option value="KRW">KRW</option>
-                <option value="GBP">GBP</option>
-                <option value="EUR">EUR</option>
+                {getPricingCurrencyOptions()}
               </select>
 
               <label className="ml-5 text-md font-medium mb-1" for="tot_share">
@@ -216,26 +265,25 @@ const EditEquity = ({ item, closeModal }) => {
                   setDetails({ ...details, pf_rating: e.target.value })
                 }
               >
-                <option value="AA+">AA+</option>
-                <option value="A-">A-</option>
-                <option value="AA-">AA-</option>
-                <option value="A">A</option>
-                <option value="AA">AA</option>
-                <option value="BBB+">BBB+</option>
-                <option value="BBB">BBB</option>
+                {getPfRatingOptions()}
               </select>
             </div>
 
             <div className="text-center">
               <button
                 type="submit"
-                className="px-5 py-2 bg-green-700 text-white rounded"
+                className={`px-5 py-2 ${
+                  isFormChanged
+                    ? "bg-green-700 text-white"
+                    : "bg-gray-300 text-gray-500"
+                } rounded`}
+                disabled={!isFormChanged}
               >
-                Save
+                Update
               </button>
               <button
                 onClick={() => closeModal(false)}
-                className="px-5 py-2 ml-2 bg-red-700 text-white rounded"
+                className="px-5 py-2 ml-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
               >
                 Close
               </button>

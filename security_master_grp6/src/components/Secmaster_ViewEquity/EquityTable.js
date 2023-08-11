@@ -12,17 +12,16 @@ const EquityTable = () => {
     tableData.filter((item) => {
       return search.toLowerCase() === ""
         ? item
-        : item.security_name.toLowerCase().includes(search) |
-            item.security_desc.toLowerCase().includes(search) |
-            item.curr.toLowerCase().includes(search) |
-            item.tot_shares_out.toLowerCase().includes(search) |
-            item.open_price.toLowerCase().includes(search) |
-            item.close_price.toLowerCase().includes(search) |
-            item.div_date.toLowerCase().includes(search) |
+        : item.security_name.toLowerCase().includes(search) ||
+            item.security_desc.toLowerCase().includes(search) ||
+            item.curr.toLowerCase().includes(search) ||
+            item.tot_shares_out.toLowerCase().includes(search) ||
+            item.open_price.toLowerCase().includes(search) ||
+            item.close_price.toLowerCase().includes(search) ||
+            item.div_date.toLowerCase().includes(search) ||
             item.pf_rating.toLowerCase().includes(search);
     }).length / recordsPerPage
   );
-
 
   const numbers = [...Array(pageCount).keys()].slice(0);
 
@@ -41,8 +40,6 @@ const EquityTable = () => {
       setCurrentPage(currentPage + 1);
     }
   };
-
-
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg ml-20 mr-20 mb-5">
@@ -83,7 +80,7 @@ const EquityTable = () => {
               Equity Name
             </th>
             <th scope="col" className="px-6 py-3">
-              Description 
+              Description
             </th>
             <th scope="col" className="px-6 py-3">
               Pricing Currency
@@ -120,18 +117,18 @@ const EquityTable = () => {
             .filter((item) => {
               return search.toLowerCase() === ""
                 ? item
-                : item.security_name.toLowerCase().includes(search) |
-                item.security_desc.toLowerCase().includes(search) |
-                item.curr.toLowerCase().includes(search) |
-                item.tot_shares_out.toLowerCase().includes(search) |
-                item.open_price.toLowerCase().includes(search) |
-                item.close_price.toLowerCase().includes(search) |
-                item.div_date.toLowerCase().includes(search) |
-                item.pf_rating.toLowerCase().includes(search);
+                : item.security_name.toLowerCase().includes(search) ||
+                    item.security_desc.toLowerCase().includes(search) ||
+                    item.curr.toLowerCase().includes(search) ||
+                    item.tot_shares_out.toLowerCase().includes(search) ||
+                    item.open_price.toLowerCase().includes(search) ||
+                    item.close_price.toLowerCase().includes(search) ||
+                    item.div_date.toLowerCase().includes(search) ||
+                    item.pf_rating.toLowerCase().includes(search);
             })
             .slice(lastIndex, lastIndex + recordsPerPage)
             .map((item, i) => (
-                  <EquityRow item={item} i={i}/>
+              <EquityRow item={item} i={i} />
             ))}
         </tbody>
       </table>
@@ -153,7 +150,7 @@ const EquityTable = () => {
               <a
                 href="#"
                 className={` ${
-                  currentPage === n ? "text-gray-900 bg-gray-400" : ""
+                  currentPage === n ? "text-gray-800 bg-gray-400" : ""
                 } flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}
                 onClick={() => changeCurrPage(n)}
               >
