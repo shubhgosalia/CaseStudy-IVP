@@ -279,7 +279,7 @@ const EditEquity = ({ item, closeModal }) => {
                 } rounded`}
                 disabled={!isFormChanged}
               >
-                Update
+                Edit
               </button>
               <button
                 onClick={() => closeModal(false)}
