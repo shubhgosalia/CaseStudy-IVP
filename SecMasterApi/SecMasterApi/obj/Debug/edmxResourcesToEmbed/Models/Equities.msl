@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ivp_saurabhbModelStoreContainer" CdmEntityContainer="connectionn">
+    <EntitySetMapping Name="EquityDBs">
+      <EntityTypeMapping TypeName="ivp_saurabhbModel.EquityDB">
+        <MappingFragment StoreEntitySet="EquityDB">
+          <ScalarProperty Name="Security_Id" ColumnName="Security_Id" />
+          <ScalarProperty Name="Security_Name" ColumnName="Security Name" />
+          <ScalarProperty Name="Security_Description" ColumnName="Security Description" />
+          <ScalarProperty Name="Has_Position" ColumnName="Has Position" />
+          <ScalarProperty Name="Is_Active_Security" ColumnName="Is Active Security" />
+          <ScalarProperty Name="Lot_Size" ColumnName="Lot Size" />
+          <ScalarProperty Name="BBG_Unique_Name" ColumnName="BBG Unique Name" />
+          <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+          <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+          <ScalarProperty Name="SEDOL" ColumnName="SEDOL" />
+          <ScalarProperty Name="Bloomberg_Ticker" ColumnName="Bloomberg Ticker" />
+          <ScalarProperty Name="Bloomberg_Unique_ID" ColumnName="Bloomberg Unique ID" />
+          <ScalarProperty Name="BBG_Global_ID" ColumnName="BBG Global ID" />
+          <ScalarProperty Name="Ticker_and_Exchange" ColumnName="Ticker and Exchange" />
+          <ScalarProperty Name="Is_ADR_Flag" ColumnName="Is ADR Flag" />
+          <ScalarProperty Name="ADR_Underlying_Ticker" ColumnName="ADR Underlying Ticker" />
+          <ScalarProperty Name="ADR_Underlying_Currency" ColumnName="ADR Underlying Currency" />
+          <ScalarProperty Name="Shares_Per_ADR" ColumnName="Shares Per ADR" />
+          <ScalarProperty Name="IPO_Date" ColumnName="IPO Date" />
+          <ScalarProperty Name="Pricing_Currency" ColumnName="Pricing Currency" />
+          <ScalarProperty Name="Settle_Days" ColumnName="Settle Days" />
+          <ScalarProperty Name="Total_Shares_Outstanding" ColumnName="Total Shares Outstanding" />
+          <ScalarProperty Name="Voting_Rights_Per_Share" ColumnName="Voting Rights Per Share" />
+          <ScalarProperty Name="Average_Volume___20D" ColumnName="Average Volume - 20D" />
+          <ScalarProperty Name="Beta" ColumnName="Beta" />
+          <ScalarProperty Name="Short_Interest" ColumnName="Short Interest" />
+          <ScalarProperty Name="Return___YTD" ColumnName="Return - YTD" />
+          <ScalarProperty Name="Volatility___90D" ColumnName="Volatility - 90D" />
+          <ScalarProperty Name="PF_Asset_Class" ColumnName="PF Asset Class" />
+          <ScalarProperty Name="PF_Country" ColumnName="PF Country" />
+          <ScalarProperty Name="PF_Credit_Rating" ColumnName="PF Credit Rating" />
+          <ScalarProperty Name="PF_Currency" ColumnName="PF Currency" />
+          <ScalarProperty Name="PF_Instrument" ColumnName="PF Instrument" />
+          <ScalarProperty Name="PF_Liquidity_Profile" ColumnName="PF Liquidity Profile" />
+          <ScalarProperty Name="PF_Maturity" ColumnName="PF Maturity" />
+          <ScalarProperty Name="PF_NAICS_Code" ColumnName="PF NAICS Code" />
+          <ScalarProperty Name="PF_Region" ColumnName="PF Region" />
+          <ScalarProperty Name="PF_Sector" ColumnName="PF Sector" />
+          <ScalarProperty Name="PF_Sub_Asset_Class" ColumnName="PF Sub Asset Class" />
+          <ScalarProperty Name="Country_of_Issuance" ColumnName="Country of Issuance" />
+          <ScalarProperty Name="Exchange" ColumnName="Exchange" />
+          <ScalarProperty Name="Issuer" ColumnName="Issuer" />
+          <ScalarProperty Name="Issue_Currency" ColumnName="Issue Currency" />
+          <ScalarProperty Name="Trading_Currency" ColumnName="Trading Currency" />
+          <ScalarProperty Name="BBG_Industry_Sub_Group" ColumnName="BBG Industry Sub Group" />
+          <ScalarProperty Name="Bloomberg_Industry_Group" ColumnName="Bloomberg Industry Group" />
+          <ScalarProperty Name="Bloomberg_Sector" ColumnName="Bloomberg Sector" />
+          <ScalarProperty Name="Country_of_Incorporation" ColumnName="Country of Incorporation" />
+          <ScalarProperty Name="Risk_Currency" ColumnName="Risk Currency" />
+          <ScalarProperty Name="Open_Price" ColumnName="Open Price" />
+          <ScalarProperty Name="Close_Price" ColumnName="Close Price" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Last_Price" ColumnName="Last Price" />
+          <ScalarProperty Name="Ask_Price" ColumnName="Ask Price" />
+          <ScalarProperty Name="Bid_Price" ColumnName="Bid Price" />
+          <ScalarProperty Name="PE_Ratio" ColumnName="PE Ratio" />
+          <ScalarProperty Name="Dividend_Declared_Date" ColumnName="Dividend Declared Date" />
+          <ScalarProperty Name="Dividend_Ex_Date" ColumnName="Dividend Ex Date" />
+          <ScalarProperty Name="Dividend_Record_Date_" ColumnName="Dividend Record Date " />
+          <ScalarProperty Name="Dividend_Pay_Date" ColumnName="Dividend Pay Date" />
+          <ScalarProperty Name="Dividend_Amount" ColumnName="Dividend Amount" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Dividend_Type" ColumnName="Dividend Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="ivp_saurabhbModel.Store.TVF_EMPINFO" FunctionImportName="TVF_EMPINFO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.TVF_EMPINFO_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ivp_saurabhbModel.Store.TVF_EMPINFO1" FunctionImportName="TVF_EMPINFO1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.TVF_EMPINFO1_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+          <ScalarProperty Name="HIRE_DATE" ColumnName="HIRE_DATE" />
+          <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+          <ScalarProperty Name="JOB_TITLE" ColumnName="JOB_TITLE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetTradeDetailsBySearchQuery" FunctionName="ivp_saurabhbModel.Store.SP_GetTradeDetailsBySearchQuery">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.SP_GetTradeDetailsBySearchQuery_Result">
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="Fund" ColumnName="Fund" />
+          <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
+          <ScalarProperty Name="IssuerGroup" ColumnName="IssuerGroup" />
+          <ScalarProperty Name="AssetClass" ColumnName="AssetClass" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="NetMoney" ColumnName="NetMoney" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllEmployees" FunctionName="ivp_saurabhbModel.Store.usp_GetAllEmployees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.usp_GetAllEmployees_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Login" FunctionName="ivp_saurabhbModel.Store.usp_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.usp_Login_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_person" FunctionName="ivp_saurabhbModel.Store.usp_person" />
+    <FunctionImportMapping FunctionImportName="USP_PROC1" FunctionName="ivp_saurabhbModel.Store.USP_PROC1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC1_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PROC10" FunctionName="ivp_saurabhbModel.Store.USP_PROC10">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC10_Result">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+          <ScalarProperty Name="ACCOUNTTYPE" ColumnName="ACCOUNTTYPE" />
+          <ScalarProperty Name="BALANCE" ColumnName="BALANCE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PROC2" FunctionName="ivp_saurabhbModel.Store.USP_PROC2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC2_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PROC3" FunctionName="ivp_saurabhbModel.Store.USP_PROC3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC3_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="HIREDATE" ColumnName="HIREDATE" />
+          <ScalarProperty Name="HIREDAY" ColumnName="HIREDAY" />
+          <ScalarProperty Name="JOB_TITLE" ColumnName="JOB_TITLE" />
+          <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PROC4" FunctionName="ivp_saurabhbModel.Store.USP_PROC4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC4_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+          <ScalarProperty Name="HIRE_DATE" ColumnName="HIRE_DATE" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="COMMISSION_PCT" ColumnName="COMMISSION_PCT" />
+          <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PROC5" FunctionName="ivp_saurabhbModel.Store.USP_PROC5">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC5_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PROC6" FunctionName="ivp_saurabhbModel.Store.USP_PROC6" />
+    <FunctionImportMapping FunctionImportName="USP_PROC7" FunctionName="ivp_saurabhbModel.Store.USP_PROC7">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC7_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PROC8" FunctionName="ivp_saurabhbModel.Store.USP_PROC8">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ivp_saurabhbModel.USP_PROC8_Result">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="HIRE_DATE" ColumnName="HIRE_DATE" />
+          <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Registration" FunctionName="ivp_saurabhbModel.Store.usp_Registration" />
+  </EntityContainerMapping>
+</Mapping>

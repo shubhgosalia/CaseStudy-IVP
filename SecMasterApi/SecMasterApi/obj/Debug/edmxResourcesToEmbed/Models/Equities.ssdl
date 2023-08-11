@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ivp_saurabhbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ivp_saurabhb.dbo.EquityDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EquityDB">
+    <Key>
+      <PropertyRef Name="Security_Id" />
+      <PropertyRef Name="Security Name" />
+      <PropertyRef Name="Security Description" />
+      <PropertyRef Name="Pricing Currency" />
+      <PropertyRef Name="Total Shares Outstanding" />
+      <PropertyRef Name="PF Credit Rating" />
+      <PropertyRef Name="Open Price" />
+      <PropertyRef Name="Close Price" />
+      <PropertyRef Name="Dividend Declared Date" />
+    </Key>
+    <Property Name="Security_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Security Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Security Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Has Position" Type="varchar" MaxLength="50" />
+    <Property Name="Is Active Security" Type="varchar" MaxLength="50" />
+    <Property Name="Lot Size" Type="varchar" MaxLength="50" />
+    <Property Name="BBG Unique Name" Type="varchar" MaxLength="50" />
+    <Property Name="CUSIP" Type="varchar" MaxLength="50" />
+    <Property Name="ISIN" Type="varchar" MaxLength="50" />
+    <Property Name="SEDOL" Type="varchar" MaxLength="50" />
+    <Property Name="Bloomberg Ticker" Type="varchar" MaxLength="50" />
+    <Property Name="Bloomberg Unique ID" Type="varchar" MaxLength="50" />
+    <Property Name="BBG Global ID" Type="varchar" MaxLength="50" />
+    <Property Name="Ticker and Exchange" Type="varchar" MaxLength="50" />
+    <Property Name="Is ADR Flag" Type="varchar" MaxLength="50" />
+    <Property Name="ADR Underlying Ticker" Type="varchar" MaxLength="50" />
+    <Property Name="ADR Underlying Currency" Type="varchar" MaxLength="50" />
+    <Property Name="Shares Per ADR" Type="varchar" MaxLength="50" />
+    <Property Name="IPO Date" Type="varchar" MaxLength="50" />
+    <Property Name="Pricing Currency" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Settle Days" Type="varchar" MaxLength="50" />
+    <Property Name="Total Shares Outstanding" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Voting Rights Per Share" Type="varchar" MaxLength="50" />
+    <Property Name="Average Volume - 20D" Type="varchar" MaxLength="50" />
+    <Property Name="Beta" Type="varchar" MaxLength="50" />
+    <Property Name="Short Interest" Type="varchar" MaxLength="50" />
+    <Property Name="Return - YTD" Type="varchar" MaxLength="50" />
+    <Property Name="Volatility - 90D" Type="varchar" MaxLength="50" />
+    <Property Name="PF Asset Class" Type="varchar" MaxLength="50" />
+    <Property Name="PF Country" Type="varchar" MaxLength="50" />
+    <Property Name="PF Credit Rating" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PF Currency" Type="varchar" MaxLength="50" />
+    <Property Name="PF Instrument" Type="varchar" MaxLength="50" />
+    <Property Name="PF Liquidity Profile" Type="varchar" MaxLength="50" />
+    <Property Name="PF Maturity" Type="varchar" MaxLength="50" />
+    <Property Name="PF NAICS Code" Type="varchar" MaxLength="50" />
+    <Property Name="PF Region" Type="varchar" MaxLength="50" />
+    <Property Name="PF Sector" Type="varchar" MaxLength="50" />
+    <Property Name="PF Sub Asset Class" Type="varchar" MaxLength="50" />
+    <Property Name="Country of Issuance" Type="varchar" MaxLength="50" />
+    <Property Name="Exchange" Type="varchar" MaxLength="50" />
+    <Property Name="Issuer" Type="varchar" MaxLength="50" />
+    <Property Name="Issue Currency" Type="varchar" MaxLength="50" />
+    <Property Name="Trading Currency" Type="varchar" MaxLength="50" />
+    <Property Name="BBG Industry Sub Group" Type="varchar" MaxLength="50" />
+    <Property Name="Bloomberg Industry Group" Type="varchar" MaxLength="50" />
+    <Property Name="Bloomberg Sector" Type="varchar" MaxLength="50" />
+    <Property Name="Country of Incorporation" Type="varchar" MaxLength="50" />
+    <Property Name="Risk Currency" Type="varchar" MaxLength="50" />
+    <Property Name="Open Price" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Close Price" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Volume" Type="varchar" MaxLength="50" />
+    <Property Name="Last Price" Type="varchar" MaxLength="50" />
+    <Property Name="Ask Price" Type="varchar" MaxLength="50" />
+    <Property Name="Bid Price" Type="varchar" MaxLength="50" />
+    <Property Name="PE Ratio" Type="varchar" MaxLength="50" />
+    <Property Name="Dividend Declared Date" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dividend Ex Date" Type="varchar" MaxLength="50" />
+    <Property Name="Dividend Record Date " Type="varchar" MaxLength="50" />
+    <Property Name="Dividend Pay Date" Type="varchar" MaxLength="50" />
+    <Property Name="Dividend Amount" Type="varchar" MaxLength="50" />
+    <Property Name="Frequency" Type="varchar" MaxLength="50" />
+    <Property Name="Dividend Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="CalculateActiveSecurityCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FX_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="VAL" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FX_NAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="VAL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FX_TAX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+    <Parameter Name="VAL" Type="float" Mode="In" />
+  </Function>
+  <Function Name="GetActiveSecurities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SoftDeleteSecurity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SecurityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetTradeDetailsBySearchQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AssetClass" Type="varchar" Mode="In" />
+    <Parameter Name="CountOfEntries" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="TVF_EMPINFO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="EMPLOYEE_ID" Type="int" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="25" />
+          <Property Name="SALARY" Type="float" />
+          <Property Name="JOB_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DEPARTMENT_ID" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="TVF_EMPINFO1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="EMPLOYEE_ID" Type="int" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="25" />
+          <Property Name="SALARY" Type="float" />
+          <Property Name="JOB_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DEPARTMENT_ID" Type="int" Nullable="false" />
+          <Property Name="HIRE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="DEPARTMENT_NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="JOB_TITLE" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="UpdateEquityData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SecurityID" Type="int" Mode="In" />
+    <Parameter Name="SecurityDescription" Type="varchar" Mode="In" />
+    <Parameter Name="PricingCurrency" Type="varchar" Mode="In" />
+    <Parameter Name="TotalSharesOutstanding" Type="float" Mode="In" />
+    <Parameter Name="OpenPrice" Type="float" Mode="In" />
+    <Parameter Name="ClosePrice" Type="float" Mode="In" />
+    <Parameter Name="DividendDeclaredDate" Type="date" Mode="In" />
+    <Parameter Name="PFCreditRating" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_person" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_PROC1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_PROC10" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="NAME" Type="varchar" Mode="In" />
+    <Parameter Name="TYPE" Type="varchar" Mode="In" />
+    <Parameter Name="BAL" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PROC2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PROC3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAME" Type="varchar" Mode="In" />
+    <Parameter Name="SAL" Type="float" Mode="In" />
+  </Function>
+  <Function Name="USP_PROC4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PROC5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SAL" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PROC6" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AVG_SAL" Type="float" Mode="InOut" />
+    <Parameter Name="TOTSAL" Type="float" Mode="InOut" />
+  </Function>
+  <Function Name="USP_PROC7" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_PROC8" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAME" Type="varchar" Mode="In" />
+    <Parameter Name="YEAR" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="ivp_saurabhbModelStoreContainer">
+    <EntitySet Name="EquityDB" EntityType="Self.EquityDB" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EquityDB].[Security_Id] AS [Security_Id], 
+    [EquityDB].[Security Name] AS [Security Name], 
+    [EquityDB].[Security Description] AS [Security Description], 
+    [EquityDB].[Has Position] AS [Has Position], 
+    [EquityDB].[Is Active Security] AS [Is Active Security], 
+    [EquityDB].[Lot Size] AS [Lot Size], 
+    [EquityDB].[BBG Unique Name] AS [BBG Unique Name], 
+    [EquityDB].[CUSIP] AS [CUSIP], 
+    [EquityDB].[ISIN] AS [ISIN], 
+    [EquityDB].[SEDOL] AS [SEDOL], 
+    [EquityDB].[Bloomberg Ticker] AS [Bloomberg Ticker], 
+    [EquityDB].[Bloomberg Unique ID] AS [Bloomberg Unique ID], 
+    [EquityDB].[BBG Global ID] AS [BBG Global ID], 
+    [EquityDB].[Ticker and Exchange] AS [Ticker and Exchange], 
+    [EquityDB].[Is ADR Flag] AS [Is ADR Flag], 
+    [EquityDB].[ADR Underlying Ticker] AS [ADR Underlying Ticker], 
+    [EquityDB].[ADR Underlying Currency] AS [ADR Underlying Currency], 
+    [EquityDB].[Shares Per ADR] AS [Shares Per ADR], 
+    [EquityDB].[IPO Date] AS [IPO Date], 
+    [EquityDB].[Pricing Currency] AS [Pricing Currency], 
+    [EquityDB].[Settle Days] AS [Settle Days], 
+    [EquityDB].[Total Shares Outstanding] AS [Total Shares Outstanding], 
+    [EquityDB].[Voting Rights Per Share] AS [Voting Rights Per Share], 
+    [EquityDB].[Average Volume - 20D] AS [Average Volume - 20D], 
+    [EquityDB].[Beta] AS [Beta], 
+    [EquityDB].[Short Interest] AS [Short Interest], 
+    [EquityDB].[Return - YTD] AS [Return - YTD], 
+    [EquityDB].[Volatility - 90D] AS [Volatility - 90D], 
+    [EquityDB].[PF Asset Class] AS [PF Asset Class], 
+    [EquityDB].[PF Country] AS [PF Country], 
+    [EquityDB].[PF Credit Rating] AS [PF Credit Rating], 
+    [EquityDB].[PF Currency] AS [PF Currency], 
+    [EquityDB].[PF Instrument] AS [PF Instrument], 
+    [EquityDB].[PF Liquidity Profile] AS [PF Liquidity Profile], 
+    [EquityDB].[PF Maturity] AS [PF Maturity], 
+    [EquityDB].[PF NAICS Code] AS [PF NAICS Code], 
+    [EquityDB].[PF Region] AS [PF Region], 
+    [EquityDB].[PF Sector] AS [PF Sector], 
+    [EquityDB].[PF Sub Asset Class] AS [PF Sub Asset Class], 
+    [EquityDB].[Country of Issuance] AS [Country of Issuance], 
+    [EquityDB].[Exchange] AS [Exchange], 
+    [EquityDB].[Issuer] AS [Issuer], 
+    [EquityDB].[Issue Currency] AS [Issue Currency], 
+    [EquityDB].[Trading Currency] AS [Trading Currency], 
+    [EquityDB].[BBG Industry Sub Group] AS [BBG Industry Sub Group], 
+    [EquityDB].[Bloomberg Industry Group] AS [Bloomberg Industry Group], 
+    [EquityDB].[Bloomberg Sector] AS [Bloomberg Sector], 
+    [EquityDB].[Country of Incorporation] AS [Country of Incorporation], 
+    [EquityDB].[Risk Currency] AS [Risk Currency], 
+    [EquityDB].[Open Price] AS [Open Price], 
+    [EquityDB].[Close Price] AS [Close Price], 
+    [EquityDB].[Volume] AS [Volume], 
+    [EquityDB].[Last Price] AS [Last Price], 
+    [EquityDB].[Ask Price] AS [Ask Price], 
+    [EquityDB].[Bid Price] AS [Bid Price], 
+    [EquityDB].[PE Ratio] AS [PE Ratio], 
+    [EquityDB].[Dividend Declared Date] AS [Dividend Declared Date], 
+    [EquityDB].[Dividend Ex Date] AS [Dividend Ex Date], 
+    [EquityDB].[Dividend Record Date ] AS [Dividend Record Date ], 
+    [EquityDB].[Dividend Pay Date] AS [Dividend Pay Date], 
+    [EquityDB].[Dividend Amount] AS [Dividend Amount], 
+    [EquityDB].[Frequency] AS [Frequency], 
+    [EquityDB].[Dividend Type] AS [Dividend Type]
+    FROM [dbo].[EquityDB] AS [EquityDB]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

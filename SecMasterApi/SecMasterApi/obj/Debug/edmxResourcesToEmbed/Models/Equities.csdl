@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ivp_saurabhbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="TVF_EMPINFO_Result">
+    <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SALARY" Type="Double" />
+    <Property Name="JOB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPARTMENT_ID" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="TVF_EMPINFO1_Result">
+    <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SALARY" Type="Double" />
+    <Property Name="JOB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPARTMENT_ID" Type="Int32" Nullable="false" />
+    <Property Name="HIRE_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JOB_TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="EquityDB">
+    <Key>
+      <PropertyRef Name="Security_Id" />
+      <PropertyRef Name="Security_Name" />
+      <PropertyRef Name="Security_Description" />
+      <PropertyRef Name="Pricing_Currency" />
+      <PropertyRef Name="Total_Shares_Outstanding" />
+      <PropertyRef Name="PF_Credit_Rating" />
+      <PropertyRef Name="Open_Price" />
+      <PropertyRef Name="Close_Price" />
+      <PropertyRef Name="Dividend_Declared_Date" />
+    </Key>
+    <Property Name="Security_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Security_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Security_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Has_Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active_Security" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lot_Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BBG_Unique_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CUSIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ISIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SEDOL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bloomberg_Ticker" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bloomberg_Unique_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BBG_Global_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ticker_and_Exchange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Is_ADR_Flag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADR_Underlying_Ticker" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADR_Underlying_Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Shares_Per_ADR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IPO_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pricing_Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Settle_Days" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Total_Shares_Outstanding" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Voting_Rights_Per_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Average_Volume___20D" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Beta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Short_Interest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Return___YTD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Volatility___90D" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Asset_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Credit_Rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PF_Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Instrument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Liquidity_Profile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Maturity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_NAICS_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PF_Sub_Asset_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country_of_Issuance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Exchange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Issuer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Issue_Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Trading_Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BBG_Industry_Sub_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bloomberg_Industry_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bloomberg_Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country_of_Incorporation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Risk_Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Open_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Close_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Volume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ask_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bid_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PE_Ratio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dividend_Declared_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dividend_Ex_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dividend_Record_Date_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dividend_Pay_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dividend_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dividend_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="connectionn" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EquityDBs" EntityType="Self.EquityDB" />
+    <FunctionImport Name="TVF_EMPINFO" IsComposable="true" ReturnType="Collection(ivp_saurabhbModel.TVF_EMPINFO_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TVF_EMPINFO1" IsComposable="true" ReturnType="Collection(ivp_saurabhbModel.TVF_EMPINFO1_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetTradeDetailsBySearchQuery" ReturnType="Collection(ivp_saurabhbModel.SP_GetTradeDetailsBySearchQuery_Result)">
+      <Parameter Name="AssetClass" Mode="In" Type="String" />
+      <Parameter Name="CountOfEntries" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetAllEmployees" ReturnType="Collection(ivp_saurabhbModel.usp_GetAllEmployees_Result)" />
+    <FunctionImport Name="usp_Login" ReturnType="Collection(ivp_saurabhbModel.usp_Login_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="PhoneNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_person">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PROC1" ReturnType="Collection(ivp_saurabhbModel.USP_PROC1_Result)" />
+    <FunctionImport Name="USP_PROC10" ReturnType="Collection(ivp_saurabhbModel.USP_PROC10_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="TYPE" Mode="In" Type="String" />
+      <Parameter Name="BAL" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PROC2" ReturnType="Collection(ivp_saurabhbModel.USP_PROC2_Result)">
+      <Parameter Name="DID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PROC3" ReturnType="Collection(ivp_saurabhbModel.USP_PROC3_Result)">
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="SAL" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PROC4" ReturnType="Collection(ivp_saurabhbModel.USP_PROC4_Result)">
+      <Parameter Name="JID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PROC5" ReturnType="Collection(ivp_saurabhbModel.USP_PROC5_Result)">
+      <Parameter Name="SAL" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PROC6">
+      <Parameter Name="AVG_SAL" Mode="InOut" Type="Double" />
+      <Parameter Name="TOTSAL" Mode="InOut" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PROC7" ReturnType="Collection(ivp_saurabhbModel.USP_PROC7_Result)" />
+    <FunctionImport Name="USP_PROC8" ReturnType="Collection(ivp_saurabhbModel.USP_PROC8_Result)">
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="YEAR" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Registration">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="PhoneNo" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_GetTradeDetailsBySearchQuery_Result">
+    <Property Type="Int64" Name="TradeID" Nullable="true" />
+    <Property Type="String" Name="Fund" Nullable="true" MaxLength="107" />
+    <Property Type="String" Name="SecurityCode" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="IssuerGroup" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="AssetClass" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="38" Scale="20" />
+    <Property Type="Decimal" Name="NetMoney" Nullable="true" Precision="38" Scale="10" />
+    <Property Type="String" Name="comments" Nullable="true" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="usp_GetAllEmployees_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PhoneNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_Login_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PhoneNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC1_Result">
+    <Property Type="Int32" Name="EMPLOYEE_ID" Nullable="false" />
+    <Property Type="String" Name="LAST_NAME" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="SALARY" Nullable="true" />
+    <Property Type="String" Name="JOB_ID" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="DEPARTMENT_ID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC10_Result">
+    <Property Type="Int32" Name="CID" Nullable="false" />
+    <Property Type="String" Name="CNAME" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ACCOUNTTYPE" Nullable="true" MaxLength="20" />
+    <Property Type="Double" Name="BALANCE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC2_Result">
+    <Property Type="Int32" Name="EMPLOYEE_ID" Nullable="false" />
+    <Property Type="String" Name="LAST_NAME" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="SALARY" Nullable="true" />
+    <Property Type="String" Name="JOB_ID" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="DEPARTMENT_ID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC3_Result">
+    <Property Type="Int32" Name="EMPLOYEE_ID" Nullable="false" />
+    <Property Type="String" Name="LASTNAME" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="SALARY" Nullable="true" />
+    <Property Type="String" Name="JOB_ID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="HIREDATE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="HIREDAY" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="JOB_TITLE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DEPARTMENT_NAME" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="DEPARTMENT_ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC4_Result">
+    <Property Type="Int32" Name="EMPLOYEE_ID" Nullable="false" />
+    <Property Type="String" Name="FIRST_NAME" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LAST_NAME" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PHONE_NUMBER" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="HIRE_DATE" Nullable="false" Precision="23" />
+    <Property Type="String" Name="JOB_ID" Nullable="false" MaxLength="10" />
+    <Property Type="Double" Name="SALARY" Nullable="true" />
+    <Property Type="Double" Name="COMMISSION_PCT" Nullable="true" />
+    <Property Type="Int32" Name="MANAGER_ID" Nullable="true" />
+    <Property Type="Int32" Name="DEPARTMENT_ID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC5_Result">
+    <Property Type="Int32" Name="EMPLOYEE_ID" Nullable="false" />
+    <Property Type="String" Name="LAST_NAME" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="SALARY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC7_Result">
+    <Property Type="Int32" Name="EMPLOYEE_ID" Nullable="false" />
+    <Property Type="String" Name="LAST_NAME" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="SALARY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PROC8_Result">
+    <Property Type="Int32" Name="EMPLOYEE_ID" Nullable="false" />
+    <Property Type="String" Name="LAST_NAME" Nullable="true" MaxLength="25" />
+    <Property Type="Double" Name="SALARY" Nullable="true" />
+    <Property Type="Int32" Name="DEPARTMENT_ID" Nullable="false" />
+    <Property Type="String" Name="JOB_ID" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="HIRE_DATE" Nullable="false" Precision="23" />
+    <Property Type="String" Name="DEPARTMENT_NAME" Nullable="false" MaxLength="30" />
+  </ComplexType>
+</Schema>
