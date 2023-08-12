@@ -4,20 +4,18 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 
-
-
 namespace SecMasterApi.Controllers
 {
-    public class UploadController : ApiController
+    public class UploadBondsController : ApiController
     {
+        // GET: UploadBonds
         [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("api/Upload/Upload")]
+        [System.Web.Http.Route("api/Upload/UploadBonds")]
         public IHttpActionResult UploadCsvFile()
         {
             try
@@ -46,7 +44,6 @@ namespace SecMasterApi.Controllers
                 return InternalServerError(ex);
             }
         }
-
         private static DataTable GetDataTableFromCSVFile(string csvFilePath)
         {
             DataTable csvData = new DataTable();
@@ -66,7 +63,8 @@ namespace SecMasterApi.Controllers
                         dataColumn.AllowDBNull = true;
                         csvData.Columns.Add(dataColumn);
                     }
-                    
+                    DataColumn comparisonColumn = new DataColumn("IsActive", typeof(string));
+                    csvData.Columns.Add(comparisonColumn);
 
                     // Read the remaining rows and populate DataTable
                     while (!csvReader.EndOfData)
@@ -80,6 +78,8 @@ namespace SecMasterApi.Controllers
                                 fieldData[i] = null;
                             }
                         }
+                        
+
                         csvData.Rows.Add(fieldData);
                     }
                 }
@@ -103,7 +103,8 @@ namespace SecMasterApi.Controllers
                 conn.Open();
                 using (SqlBulkCopy s = new SqlBulkCopy(conn))
                 {
-                    s.DestinationTableName = "EquitiesDBase";
+                    s.DestinationTableName = "Bonds1";
+                    s.ColumnMappings.Add("ComparisonResult", "ComparisonColumn");
                     foreach (var column in csvFileData.Columns)
                         s.ColumnMappings.Add(column.ToString(), column.ToString());
                     s.WriteToServer(csvFileData);

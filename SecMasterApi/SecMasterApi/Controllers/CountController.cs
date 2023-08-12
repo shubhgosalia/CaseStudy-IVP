@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SecMasterApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -10,13 +11,14 @@ using System.Web.Mvc;
 
 namespace SecMasterApi.Controllers
 {
-    public class HomeController : ApiController
+    public class CountController : ApiController
     {
-        public int GetEmployeeCount1()
+        // GET: Count
+        public int GetEmployeeCount()
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString))
             {
-                using (SqlCommand command = new SqlCommand("CountInActives", connection))
+                using (SqlCommand command = new SqlCommand("CountActives", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
@@ -25,5 +27,7 @@ namespace SecMasterApi.Controllers
                 }
             }
         }
+        
+
     }
 }
