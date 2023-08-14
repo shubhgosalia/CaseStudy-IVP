@@ -1,12 +1,12 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios"
-import EyeEquity from "./EyeEquity";
-import EditEquity from "./EditEquity";
+import EyeBond from "./EyeBond";
+import EditBond from "./EditBond";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 
 
-const EquityRow = ({ item, i }) => {
+const BondRow = ({ item, i }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
 
@@ -31,7 +31,7 @@ const EquityRow = ({ item, i }) => {
 
   useEffect(() => {
     if (idClick !== null) {
-      axios.delete(`http://localhost:53388/api/values/${idClick}`)
+      axios.delete(`http://localhost:53388/api/bonds/${idClick}`)
         .then(response => {
           console.log(response);
           console.log(response.data);
@@ -57,12 +57,14 @@ const EquityRow = ({ item, i }) => {
     <tr key={item.Security_ID} className={` border-b ${i % 2 === 0 ? "bg-white" : "bg-gray-100"}`}>
       <td className="px-6 py-4"> {item.Security_Name}</td>
       <td className="px-6 py-4">{item.Security_Description}</td>
-      <td className="px-6 py-4">{item.Pricing_Currency}</td>
-      <td className="px-6 py-4">{item.Total_Shares_Outstanding}</td>
-      <td className="px-6 py-4">{item.Open_Price}</td>
-      <td className="px-6 py-4">{item.Close_Price}</td>
-      <td className="px-6 py-4">{item.Dividend_Declared_Date}</td>
+      <td className="px-6 py-4">{item.Coupon}</td>
+      <td className="px-6 py-4">{item.Callable_Flag}</td>
+      <td className="px-6 py-4">{item.Maturity}</td>
+      <td className="px-6 py-4">{item.Penultimate_Coupon_Date}</td>
       <td className="px-6 py-4">{item.PF_Credit_Rating}</td>
+      <td className="px-6 py-4">{item.Ask_Price}</td>
+      <td className="px-6 py-4">{item.Bid_Price}</td>
+
 
       <td className="py-4">
         <button onClick={() => setShowEditModal(true)}>
@@ -79,7 +81,7 @@ const EquityRow = ({ item, i }) => {
           </svg>
         </button>
         {showEditModal && (
-          <EditEquity item={item} closeModal={() => setShowEditModal(false)} />
+          <EditBond item={item} closeModal={() => setShowEditModal(false)} />
         )}
       </td>
       <td className="py-4">
@@ -111,11 +113,11 @@ const EquityRow = ({ item, i }) => {
           </svg>
         </button>
         {showViewModal && (
-          <EyeEquity item={item} onClose={() => setShowViewModal(false)} />
+          <EyeBond item={item} onClose={() => setShowViewModal(false)} />
         )}
       </td>
     </tr>
   );
 };
 
-export default EquityRow;
+export default BondRow;

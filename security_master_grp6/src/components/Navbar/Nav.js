@@ -9,8 +9,6 @@ import {
   Button,
 } from "@mui/material";
 import AddModeratorIcon from "@mui/icons-material/AddModerator";
-import Swal from "sweetalert2";
-import "sweetalert2/dist/sweetalert2.min.css";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -41,8 +39,15 @@ const Nav = () => {
             onClick={() => navigate("/sec-upload")}
             color={location.pathname === "/sec-upload" ? "primary" : "inherit"}
           >
-            Upload CSV
+            Upload Equity
           </Button>
+          <Button
+            onClick={() => navigate("/sec-upload-bond")}
+            color={location.pathname === "/sec-upload-bond" ? "primary" : "inherit"}
+          >
+            Upload Bond
+          </Button>
+
           <Button
             onClick={() => navigate("/sec-view-equity")}
             color={

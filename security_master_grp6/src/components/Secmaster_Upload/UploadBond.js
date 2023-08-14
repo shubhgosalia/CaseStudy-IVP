@@ -55,7 +55,7 @@ const Upload = () => {
       const formData=new FormData();
       formData.append('file',files[0]);
       try{
-         const response=await axios.post('http://localhost:53388/api/Upload/Upload',formData,{
+         const response=await axios.post('http://localhost:53388/api/Upload/UploadBonds',formData,{
             headers:{
               'Content-Type': 'multipart/form-data',
             },
@@ -93,7 +93,7 @@ const Upload = () => {
   return (
     <>
       <h1 className="title text-3xl font-bold mt-10 text-white">
-        Upload Equity File
+        Upload Corporate Bond File
       </h1>
 
       {/* Drag & Drop Area */}

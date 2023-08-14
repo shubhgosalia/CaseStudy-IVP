@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EquityPopup = ({ item, onClose }) => {
+const EyeEquity = ({ item, onClose }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
@@ -17,100 +17,100 @@ const EquityPopup = ({ item, onClose }) => {
   const tabContent = [
     {
       data: [
-        { label: "Equity Name", value: `${item.security_name}` },
-        { label: "Equity Description", value: `${item.security_desc}` },
-        { label: "Has Position", value: "None" },
-        { label: "Is Active", value: "None" },
-        { label: "Round Lot size", value: "None" },
-        { label: "Bloomberg Unique Name", value: "None" },
+        { label: "Equity Name", value: `${item.Security_Name}` },
+        { label: "Equity Description", value: `${item.Security_Description}` },
+        { label: "Has Position", value: `${item.Has_Position}` },
+        { label: "Is Active", value: `${item.Is_Active_Security}`},
+        { label: "Round Lot size", value:`${item.Lot_Size}` },
+        { label: "Bloomberg Unique Name", value: `${item.BBG_Unique_Name}` },
       ],
     },
     {
       data: [
-        { label: "CUSIP", value: "None" },
-        { label: "ISIN", value: "None" },
-        { label: "SEDOL", value: "None" },
-        { label: "Bloomberg Ticker", value: "None" },
-        { label: "Bloomberg Unique Id", value: "None" },
-        { label: "Bloomberg Global Id", value: "None" },
-        { label: "Bloomberg Ticker and Exchange", value: "None" },
-      ],
-    },
-
-    {
-      data: [
-        { label: "Is ADR", value: "None" },
-        { label: "ADR Underlying Ticker", value: "None" },
-        { label: "ADR Underlying Currency", value: "None" },
-        { label: "Shares Per ADR", value: "None" },
-        { label: "IPO Date", value: "None" },
-        { label: "Price Currency", value: `${item.curr}` },
-        { label: "Settle Days", value: "None" },
-        { label: "Shares Outstanding", value: `${item.tot_shares_out}` },
-        { label: "Voting Rights Per Share", value: "None" },
-      ],
-    },
-    {
-      data: [
-        { label: "20 Day Average", value: "None" },
-        { label: "Beta", value: "None" },
-        { label: "Short Interest", value: "None" },
-        { label: "YTD Return", value: "None" },
-        { label: "90 Day Price Volatility", value: "None" },
-      ],
-    },
-    {
-      data: [
-        { label: "Form PF Asset Class", value: "None" },
-        { label: "Form PF Country", value: "None" },
-        { label: "Form PF Credit Rating", value: `${item.pf_rating}` },
-        { label: "Form PF Currency", value: "None" },
-        { label: "Form PF Instrument", value: "None" },
-        { label: "Form PF Liquidity Profile", value: "None" },
-        { label: "Form PF Maturity", value: "None" },
-        { label: "Form PF NAICS Code", value: "None" },
-        { label: "Form PF Region", value: "None" },
-        { label: "Form PF Sector", value: "None" },
-        { label: "Form PF Sub Asset Class", value: "None" },
+        { label: "CUSIP", value:`${item.CUSIP}`},
+        { label: "ISIN", value: `${item.ISIN}` },
+        { label: "SEDOL", value: `${item.SEDOL}` },
+        { label: "Bloomberg Ticker", value:`${item.Bloomberg_Ticker}` },
+        { label: "Bloomberg Unique Id", value:`${item.Bloomberg_Unique_ID}` },
+        { label: "Bloomberg Global Id", value: `${item.BBG_Global_ID}`},
+        { label: "Bloomberg Ticker and Exchange", value:`${item.Ticker_and_Exchange}` },
       ],
     },
 
     {
       data: [
-        { label: "Issue Country", value: "None" },
-        { label: "Exchange", value: "None" },
-        { label: "Issuer", value: "None" },
-        { label: "Issue Currency", value: "None" },
-        { label: "Trading Currency", value: "None" },
-        { label: "Bloomberg Industry Sub Group", value: "None" },
-        { label: "Bloomberg Industry Group", value: "None" },
-        { label: "Bloomberg Industry Sector", value: "None" },
-        { label: "Country of Incorporation", value: "None" },
-        { label: "Risk Currency", value: "None" },
+        { label: "Is ADR", value: `${item.Is_ADR_Flag}` },
+        { label: "ADR Underlying Ticker", value: `${item.ADR_Underlying_Ticker}` },
+        { label: "ADR Underlying Currency", value: `${item.ADR_Underlying_Currency}` },
+        { label: "Shares Per ADR", value: `${item.Shares_Per_ADR}` },
+        { label: "IPO Date", value: `${item.IPO_Date}` },
+        { label: "Price Currency", value: `${item.Pricing_Currency}` },
+        { label: "Settle Days", value: `${item.Settle_Days}` },
+        { label: "Shares Outstanding", value: `${item.Settle_Days}`},
+        { label: "Voting Rights Per Share", value: `${item.Voting_Rights_Per_Share}` },
+      ],
+    },
+    {
+      data: [
+        { label: "20 Day Average", value:  `${item.Average_Volume___20D}`  },
+        { label: "Beta", value:  `${item.Beta}` },
+        { label: "Short Interest", value: `${item.Short_Interest}`  },
+        { label: "YTD Return", value:  `${item.Return___YTD}`  },
+        { label: "90 Day Price Volatility", value: `${item.Volatility___90D}`  },
+      ],
+    },
+    {
+      data: [
+        { label: "Form PF Asset Class", value: `${item.PF_Asset_Class}` },
+        { label: "Form PF Country", value: `${item.PF_Country}` },
+        { label: "Form PF Credit Rating", value: `${item.PF_Credit_Rating}` },
+        { label: "Form PF Currency", value:`${item.PF_Currency}`},
+        { label: "Form PF Instrument", value:`${item.PF_Instrument}` },
+        { label: "Form PF Liquidity Profile", value: `${item.PF_Liquidity_Profile}`},
+        { label: "Form PF Maturity", value: `${item.PF_Maturity}` },
+        { label: "Form PF NAICS Code", value: `${item.PF_NAICS_Code}` },
+        { label: "Form PF Region", value: `${item.PF_Region}` },
+        { label: "Form PF Sector", value: `${item.PF_Sector}` },
+        { label: "Form PF Sub Asset Class", value: `${item.PF_Sub_Asset_Class}` },
       ],
     },
 
     {
       data: [
-        { label: "Open Price", value: `${item.open_price}` },
-        { label: "Close Price", value: `${item.close_price}` },
-        { label: "Volume", value: "None" },
-        { label: "Last Price", value: "None" },
-        { label: "Ask Price", value: "None" },
-        { label: "Bid Price", value: "None" },
-        { label: "PE Ratio", value: "None" },
+        { label: "Issue Country", value: `${item.Country_of_Issuance}` },
+        { label: "Exchange", value: `${item.Exchange}` },
+        { label: "Issuer", value: `${item.Issuer}` },
+        { label: "Issue Currency", value: `${item.Issue_Currency}` },
+        { label: "Trading Currency", value: `${item.Trading_Currency}` },
+        { label: "Bloomberg Industry Sub Group", value: `${item.BBG_Industry_Sub_Group}` },
+        { label: "Bloomberg Industry Group", value: `${item.Bloomberg_Industry_Group}` },
+        { label: "Bloomberg Industry Sector", value: `${item.Bloomberg_Sector}`},
+        { label: "Country of Incorporation", value: `${item.Country_of_Incorporation}` },
+        { label: "Risk Currency", value: `${item.Risk_Currency}` },
       ],
     },
 
     {
       data: [
-        { label: "Declared Date", value: `${item.div_date}` },
-        { label: "Ex Date", value: "None" },
-        { label: "Record Date", value: "None" },
-        { label: "Pay Date", value: "None" },
-        { label: "Amount", value: "None" },
-        { label: "Frequency", value: "None" },
-        { label: "Dividend Type", value: "None" },
+        { label: "Open Price", value: `${item.Open_Price}` },
+        { label: "Close Price", value: `${item.Close_Price}` },
+        { label: "Volume", value: `${item.Volume}` },
+        { label: "Last Price", value: `${item.Last_Price}` },
+        { label: "Ask Price", value: `${item.Ask_Price}` },
+        { label: "Bid Price", value: `${item.Bid_Price}` },
+        { label: "PE Ratio", value: `${item.PE_Ratio}` },
+      ],
+    },
+
+    {
+      data: [
+        { label: "Declared Date", value: `${item.Dividend_Declared_Date}` },
+        { label: "Ex Date", value: `${item.Dividend_Ex_Date}` },
+        { label: "Record Date", value: `${item.Dividend_Record_Date}` },
+        { label: "Pay Date", value: `${item.Dividend_Pay_Date}` },
+        { label: "Amount", value: `${item.Dividend_Amount}`},
+        { label: "Frequency", value:`${item.Frequency}`},
+        { label: "Dividend Type", value:`${item.Dividend_Type}`},
       ],
     },
   ];
@@ -133,7 +133,7 @@ const EquityPopup = ({ item, onClose }) => {
             </button>
           ))}
         </div>
-        <div>
+        <div className="max-h-80 overflow-y-auto">
           {tabContent.map((tab, index) => (
             <div
               key={index}
@@ -170,4 +170,4 @@ const EquityPopup = ({ item, onClose }) => {
   );
 };
 
-export default EquityPopup;
+export default EyeEquity;

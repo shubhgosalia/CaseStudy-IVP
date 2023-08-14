@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
+import axios from "axios"
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 
 const EditEquity = ({ item, closeModal }) => {
-  const [isFormChanged, setIsFormChanged] = useState(false);
-
+  
   const formatDate = (dateString) => {
     const dateObject = new Date(dateString);
     const year = dateObject.getFullYear();
@@ -13,25 +13,26 @@ const EditEquity = ({ item, closeModal }) => {
     return `${year}-${month}-${day}`;
   };
 
+  const [isFormChanged, setIsFormChanged] = useState(false);
   const [details, setDetails] = useState({
-    description: `${item.security_desc}`,
-    currency: `${item.curr}`,
-    tot_shares: `${item.tot_shares_out}`,
-    open_price: `${item.open_price}`,
-    close_price: `${item.close_price}`,
-    div_date: `${formatDate(item.div_date)}`,
-    pf_rating: `${item.pf_rating}`,
+    description: item.Security_Description,
+    currency: item.Pricing_Currency,
+    tot_shares: item.Total_Shares_Outstanding,
+    open_price: item.Open_Price,
+    close_price: item.Close_Price,
+    div_date: formatDate(item.Dividend_Declared_Date),
+    pf_rating: item.PF_Credit_Rating,
   });
 
   useEffect(() => {
     const isAnyFieldChanged =
-      details.description !== item.security_desc ||
-      details.currency !== item.curr ||
-      details.tot_shares !== item.tot_shares_out ||
-      details.open_price !== item.open_price ||
-      details.close_price !== item.close_price ||
-      details.div_date !== formatDate(item.div_date) ||
-      details.pf_rating !== item.pf_rating;
+      details.description !== item.Security_Description ||
+      details.currency !== item.Pricing_Currency ||
+      details.tot_shares !== item.Total_Shares_Outstanding ||
+      details.open_price !== item.Open_Price ||
+      details.close_price !== item.Close_Price ||
+      details.div_date !== formatDate(item.Dividend_Declared_Date) ||
+      details.pf_rating !== item.PF_Credit_Rating;
 
     setIsFormChanged(isAnyFieldChanged);
   }, [details, item]);
@@ -81,17 +82,47 @@ const EditEquity = ({ item, closeModal }) => {
     }
   };
 
-  const editSubmit = (e) => {
+  const editSubmit = async (e) => {
     e.preventDefault();
-    Swal.fire({
-      icon: "success",
-      title: "Success",
-      text: "Changes have been updated successfully!",
-      confirmButtonColor: "#3085d6",
-      confirmButtonText: "OK",
-    }).then(() => {
-      closeModal(false);
-    });
+
+    const updatedData = {
+      Security_Description: details.description,
+      Pricing_Currency: details.currency,
+      Total_Shares_Outstanding: details.tot_shares,
+      Open_Price: details.open_price,
+      Close_Price: details.close_price,
+      Dividend_Declared_Date: details.div_date,
+      PF_Credit_Rating: details.pf_rating,
+    };
+
+    try {
+      const response = await axios.put(
+        `http://localhost:53388/api/values/${item.Security_ID}`,
+        updatedData
+      );
+
+      if (response.status === 200) {
+        console.log("Updated Data:",updatedData)
+        console.log("Response:",response)
+        console.log("Response data",response.data)
+        console.log('Update successful!');
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Changes have been updated successfully!',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK',
+        }).then(() => {
+          closeModal(false);
+          window.location.reload();
+        });
+      } else {
+        console.error('Update failed. Response status:', response.status);
+      }
+    } catch (error) {
+      console.error('Error updating equity:', error);
+      console.log('Error response:', error.response);
+    }
   };
 
   const getPfRatingOptions = () => {
@@ -153,7 +184,7 @@ const EditEquity = ({ item, closeModal }) => {
                 type="text"
                 id="sec_name"
                 disabled={true}
-                value={item.security_name}
+                value={item.Security_Name}
                 className="border border-gray-700 p-2 rounded mb-5 ml-5 mr-5"
               />
 

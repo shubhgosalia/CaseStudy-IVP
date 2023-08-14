@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { tableData } from "../../data";
+import React, { useState,useEffect } from "react";
+// import { tableData } from "../../data";
 import EquityRow from "./EquityRow";
+import axios from "axios";
 
 const EquityTable = () => {
   const [search, setSearch] = useState("");
@@ -8,18 +9,30 @@ const EquityTable = () => {
   const recordsPerPage = 5;
   const lastIndex = currentPage * recordsPerPage;
 
+  const[equity,setEquity]=useState([])
+    useEffect(()=>{
+        axios.get(`http://localhost:53388/api/values`).then(response=>{
+            console.log(response)
+            setEquity(response.data)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    },[])
+
+
   const pageCount = Math.ceil(
-    tableData.filter((item) => {
+    equity.filter((item) => {
       return search.toLowerCase() === ""
         ? item
-        : item.security_name.toLowerCase().includes(search) ||
-            item.security_desc.toLowerCase().includes(search) ||
-            item.curr.toLowerCase().includes(search) ||
-            item.tot_shares_out.toLowerCase().includes(search) ||
-            item.open_price.toLowerCase().includes(search) ||
-            item.close_price.toLowerCase().includes(search) ||
-            item.div_date.toLowerCase().includes(search) ||
-            item.pf_rating.toLowerCase().includes(search);
+        : item.Security_Name.toLowerCase().includes(search) ||
+        item.Security_Description.toLowerCase().includes(search) ||
+        item.Pricing_Currency.toLowerCase().includes(search) ||
+        item.Total_Shares_Outstanding.toLowerCase().includes(search) ||
+        item.Open_Price.toLowerCase().includes(search) ||
+        item.Close_Price.toLowerCase().includes(search) ||
+        item.Dividend_Declared_Date.toLowerCase().includes(search) ||
+        item.PF_Credit_Rating.toLowerCase().includes(search);
     }).length / recordsPerPage
   );
 
@@ -40,7 +53,6 @@ const EquityTable = () => {
       setCurrentPage(currentPage + 1);
     }
   };
-
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg ml-20 mr-20 mb-5">
       <form className="mb-10">
@@ -113,18 +125,18 @@ const EquityTable = () => {
         </thead>
 
         <tbody>
-          {tableData
+          {equity
             .filter((item) => {
               return search.toLowerCase() === ""
                 ? item
-                : item.security_name.toLowerCase().includes(search) ||
-                    item.security_desc.toLowerCase().includes(search) ||
-                    item.curr.toLowerCase().includes(search) ||
-                    item.tot_shares_out.toLowerCase().includes(search) ||
-                    item.open_price.toLowerCase().includes(search) ||
-                    item.close_price.toLowerCase().includes(search) ||
-                    item.div_date.toLowerCase().includes(search) ||
-                    item.pf_rating.toLowerCase().includes(search);
+                : item.Security_Name.toLowerCase().includes(search) ||
+                    item.Security_Description.toLowerCase().includes(search) ||
+                    item.Pricing_Currency.toLowerCase().includes(search) ||
+                    item.Total_Shares_Outstanding.toLowerCase().includes(search) ||
+                    item.Open_Price.toLowerCase().includes(search) ||
+                    item.Close_Price.toLowerCase().includes(search) ||
+                    item.Dividend_Declared_Date.toLowerCase().includes(search) ||
+                    item.PF_Credit_Rating.toLowerCase().includes(search);
             })
             .slice(lastIndex, lastIndex + recordsPerPage)
             .map((item, i) => (
@@ -150,7 +162,7 @@ const EquityTable = () => {
               <a
                 href="#"
                 className={` ${
-                  currentPage === n ? "text-gray-800 bg-gray-400" : ""
+                  currentPage === n ? "text-blue-800 bg-blue-200" : ""
                 } flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}
                 onClick={() => changeCurrPage(n)}
               >
